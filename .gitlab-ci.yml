@@ -1,0 +1,18 @@
+image: node:10.16.3
+
+stages:
+  - prepare
+
+build_and_test:
+  stage: prepare
+  script:
+    - ([ -n "$ENV_TEST" ] && echo "$ENV_TEST" > .env.yml) || (echo "No env data"; exit 1)
+    - yarn --frozen-lockfile
+    - ./tasker info
+    - ./tasker test
+    - ./tasker build-everything --production
+  artifacts:
+    paths:
+      - public
+      - flow-coverage
+      - storybook-static

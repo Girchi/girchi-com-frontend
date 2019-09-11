@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "name": "@girchi/frontend",
+  "version": "0.0.0-not-versioned",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.22",
+    "@fortawesome/free-brands-svg-icons": "^5.10.2",
+    "@fortawesome/free-regular-svg-icons": "^5.10.2",
+    "@fortawesome/free-solid-svg-icons": "^5.10.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "bootstrap": "^4.3.1",
+    "classnames": "^2.2.6",
+    "date-fns": "^2.1.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}

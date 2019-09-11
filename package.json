@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "version": "0.0.0-not-versioned",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "./tasker build",
+    "start": "./tasker start",
+    "test": "./tasker test"
+  },
+  "workspaces": [
+    "scripts/*",
+    "workspaces/*"
+  ],
+  "dependencies": {
+    "flow-bin": "^0.107.0"
+  }
+}
