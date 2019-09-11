@@ -1,15 +1,10 @@
 name: CI
-
 on: [push]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
-    - run: ([ -n "$ENV_TEST" ] && echo "$ENV_TEST" > .env.yml) || (echo "No env data"; exit 1)
     - run: yarn --frozen-lockfile
     - run: ./tasker info
     - run: ./tasker test
