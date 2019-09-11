@@ -9,9 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - ([ -n "$ENV_TEST" ] && echo "$ENV_TEST" > .env.yml) || (echo "No env data"; exit 1)
-    - yarn --frozen-lockfile
-    - ./tasker info
-    - ./tasker test
-    - ./tasker build-everything --production
+    - run: ([ -n "$ENV_TEST" ] && echo "$ENV_TEST" > .env.yml) || (echo "No env data"; exit 1)
+    - run: yarn --frozen-lockfile
+    - run: ./tasker info
+    - run: ./tasker test
+    - run: ./tasker build-everything --production
 
