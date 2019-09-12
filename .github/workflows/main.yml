@@ -9,4 +9,15 @@ jobs:
     - run: ./tasker info
     - run: ./tasker test
     - run: ./tasker build-everything --production
-
+    - uses: actions/upload-artifact@master
+      with:
+        name: Site
+        path: public
+    - uses: actions/upload-artifact@master
+      with:
+        name: Flow Coverage
+        path: flow-coverage
+    - uses: actions/upload-artifact@master
+      with:
+        name: Storybook
+        path: storybook-static

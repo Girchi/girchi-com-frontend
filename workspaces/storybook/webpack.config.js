@@ -5,14 +5,14 @@ const babelrc = require('./.babelrc.js')
 
 const abs = str => path.resolve(__dirname, str)
 const rootAbs = str => path.resolve(abs('../..'), str)
-const groundAbs = str => path.resolve(rootAbs('workspaces/frontend'), str)
-const blessingAbs = str => path.resolve(rootAbs('scripts/blessing'), str)
+const frontendAbs = str => path.resolve(rootAbs('workspaces/frontend'), str)
+const blessingAbs = str => path.resolve(rootAbs('workspaces/blessing'), str)
 
 module.exports = async ({ config, mode }) => {
   config.module.rules[0].use[0].options = {
     babelrc: false,
     cacheDirectory: true,
-    root: groundAbs('.'),
+    root: frontendAbs('.'),
     ...babelrc
   }
 
@@ -28,11 +28,11 @@ module.exports = async ({ config, mode }) => {
   config.resolve.modules = [
     rootAbs('node_modules'),
     blessingAbs('node_modules'),
-    groundAbs('node_modules'),
-    groundAbs('src/js'),
-    groundAbs('src/sass'),
-    groundAbs('src'),
-    groundAbs('.')
+    frontendAbs('node_modules'),
+    frontendAbs('src/js'),
+    frontendAbs('src/sass'),
+    frontendAbs('src'),
+    frontendAbs('.')
   ]
 
   config.module.rules.push({

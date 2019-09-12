@@ -21,11 +21,11 @@ function update { # Update Project
 }
 
 function storybook-start { # Start Storybook
-  start-storybook -c scripts/storybook -p 8132 -h local-dev.girchi.com --ci
+  start-storybook -c workspaces/storybook -p 8132 -h local-dev.girchi.com --ci
 }
 
 function storybook-build { # Build Storybook
-  build-storybook -c scripts/storybook --quiet
+  build-storybook -c workspaces/storybook --quiet
 }
 
 function start { # Start Server
@@ -51,7 +51,7 @@ function lint { # Lint Project Files (don't show warning)
 }
 
 function blessing { # Run frontend tasker command
-  eval "./scripts/blessing/tasker ${@}"
+  eval "./workspaces/blessing/tasker ${@}"
 }
 
 _bootstrap "${@}"

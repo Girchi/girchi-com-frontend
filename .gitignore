@@ -14,5 +14,4 @@
 
 # Node Modules
 /node_modules
-/scripts/*/node_modules
 /workspaces/*/node_modules
