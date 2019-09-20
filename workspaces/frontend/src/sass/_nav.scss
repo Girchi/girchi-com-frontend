@@ -1,0 +1,80 @@
+// Nav
+
+.nav {
+  &-pills {
+    .nav-link {
+      padding: $nav-pills-link-padding-y $nav-pills-link-padding-x;
+      font-size: $nav-pills-link-font-size;
+      line-height: $nav-pills-link-line-height;
+      border: $nav-pills-link-inactive-border;
+      &.active {
+        border: $nav-pills-link-active-border;
+      }
+    }
+  }
+  &-vertical {
+    .list-group-item-action {
+      display: flex !important;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.4s ease-in-out, box-shadow 0.4s ease-in-out,
+        background 0.4s ease-in-out;
+      &:hover {
+        box-shadow: inset 3px 0 0 0 $success;
+      }
+      &.active {
+        box-shadow: inset 3px 0 0 0 $success;
+      }
+    }
+    a[aria-expanded] {
+      box-shadow: initial !important;
+      &:hover {
+        color: $dark;
+        background: $dark-white;
+      }
+      &:after {
+        content: "\e903";
+        color: $dark-silver;
+        font-family: icomoon;
+        font-size: 0.6rem;
+      }
+      &:active,
+      &:focus,
+      &:visited {
+        color: $dark;
+      }
+    }
+    a[aria-expanded="false"] {
+      &:focus {
+        background-color: $white;
+      }
+      &:active {
+        background-color: $list-group-hover-bg;
+      }
+    }
+    a[aria-expanded="true"] {
+      background-color: $dark-white;
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+
+    .collapse,
+    .collapsing {
+      background-color: $dark-white !important;
+      li.active {
+        a {
+          color: $light-green;
+        }
+      }
+    }
+  }
+  &-tabs {
+    .nav-link {
+      color: $nav-tabs-link-color;
+      &.active {
+        box-shadow: inset 0 -4px $success;
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@each $color, $value in $theme-colors {
+  .bg-hover-#{$color} {
+    &:hover {
+      background-color: $value !important;
+    }
+  }
+}
+
+.bg-gradient {
+  background-image: $green-gradient;
+}
+
+.frozen {
+  pointer-events: none;
+  opacity: 0.4;
+  * {
+    pointer-events: none;
+  }
+}

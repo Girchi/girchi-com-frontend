@@ -1,0 +1,21 @@
+// Position
+
+.position {
+  @each $side, $positions in $positionTypes {
+    @each $position, $properties in $positions {
+      &-#{$side}-#{$position} {
+        @each $property, $value in $properties {
+          #{$property}: $value;
+        }
+      }
+    }
+  }
+}
+
+.z-index {
+  @for $i from 0 through 10 {
+    &-#{$i} {
+      z-index: #{$i};
+    }
+  }
+}

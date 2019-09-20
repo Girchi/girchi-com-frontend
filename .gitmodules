@@ -1,0 +1,3 @@
+[submodule "girchi-com-ui"]
+	path = girchi-com-ui
+	url = https://github.com/Girchi/girchi-com-ui.git
