@@ -1,0 +1,23 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: yarn --frozen-lockfile
+    - run: ./tasker info
+    - run: ./tasker test
+    - run: ./tasker build-everything --production
+    - uses: actions/upload-artifact@master
+      with:
+        name: Site
+        path: public
+    - uses: actions/upload-artifact@master
+      with:
+        name: Flow Coverage
+        path: flow-coverage
+    - uses: actions/upload-artifact@master
+      with:
+        name: Storybook
+        path: storybook-static

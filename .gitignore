@@ -1,0 +1,17 @@
+# Local Config files
+/.env.yml
+/.idea
+/.vscode
+
+# Build Artifacts
+/flow-coverage
+/public
+/storybook-static
+
+# Debug Logs
+/yarn-error.log
+/npm-debug.log
+
+# Node Modules
+/node_modules
+/workspaces/*/node_modules

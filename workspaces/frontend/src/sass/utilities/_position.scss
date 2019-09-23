@@ -1,0 +1,40 @@
+// Position
+
+.position {
+  @each $side, $positions in $positionTypes {
+    @each $position, $properties in $positions {
+      &-#{$side}-#{$position} {
+        @each $property, $value in $properties {
+          #{$property}: #{$value};
+        }
+      }
+    }
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .position {
+      &#{$infix} {
+        &-absolute {
+          position: absolute !important;
+        }
+        &-fixed {
+          position: fixed !important;
+        }
+        &-static {
+          position: static !important;
+        }
+      }
+    }
+  }
+}
+
+.z-index {
+  @for $i from 0 through 10 {
+    &-#{$i} {
+      z-index: #{$i};
+    }
+  }
+}

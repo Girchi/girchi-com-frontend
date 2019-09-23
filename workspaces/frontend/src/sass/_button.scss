@@ -1,0 +1,10 @@
+// Button
+
+.btn {
+  &-with-icon {
+    [class^='icon'] {
+      margin-top: -0.312rem;
+      margin-bottom: -0.312rem;
+    }
+  }
+}

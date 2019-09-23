@@ -1,0 +1,179 @@
+//
+// Textual form controls
+//
+
+.form {
+  &-group {
+    .iti {
+      display: block;
+      border-radius: $input-border-radius-lg;
+      .form-control {
+        padding-right: $input-padding-x-lg;
+        padding-left: 4.375rem;
+      }
+      &__selected-flag {
+        padding-left: $input-padding-x-lg;
+        background-color: transparent !important;
+        outline: none;
+      }
+    }
+    &.is-invalid {
+      position: relative;
+      .iti {
+        & + .validation-message {
+          position: absolute;
+          display: block;
+          width: 20px;
+          height: 20px;
+          background: $light-silver;
+          border-radius: 1rem;
+          top: 50px;
+          left: calc(100% - 35px);
+          font-family: icomoon !important;
+          speak: none;
+          font-style: normal;
+          @extend .icon-close;
+          font-size: 0.6rem;
+          color: $danger;
+          padding: 0.2rem 0.3rem;
+        }
+      }
+      .form-control {
+        border-color: $danger;
+        padding-right: 2.5rem;
+        &.form-control-lg {
+          & + .validation-message {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: $light-silver;
+            border-radius: 1rem;
+            top: 50px;
+            left: calc(100% - 35px);
+            font-family: icomoon !important;
+            speak: none;
+            font-style: normal;
+            @extend .icon-close;
+            font-size: 0.6rem;
+            color: $danger;
+            padding: 0.2rem 0.3rem;
+          }
+        }
+      }
+    }
+    &.is-valid {
+      position: relative;
+      .form-control {
+        border-color: $green;
+        padding-right: 2.5rem;
+        &.form-control-lg {
+          & + .validation-message {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: $light-silver;
+            border-radius: 1rem;
+            top: 50px;
+            left: calc(100% - 35px);
+            font-family: icomoon !important;
+            speak: none;
+            font-style: normal;
+            @extend .icon-checked;
+            font-size: 0.6rem;
+            color: $green;
+            padding: 0.2rem 0.3rem;
+          }
+        }
+      }
+    }
+  }
+  &-label {
+    color: $input-label-color;
+    font-size: $input-label-font-size;
+    margin: $input-label-margin-y $input-label-margin-x;
+    font-weight: bold;
+  }
+  &-control {
+    &-spin-none {
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+      }
+    }
+    select {
+      background: transparent;
+      border: none;
+      width: 100%;
+      outline: none;
+      &:not(.selected) {
+        color: $dark-silver;
+      }
+    }
+  }
+  &-text {
+    margin-left: $form-text-margin-x;
+    margin-right: $form-text-margin-x;
+  }
+  &-checkbox {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    &-label {
+      font-size: $form-check-label-font-size;
+      line-height: $form-check-label-line-height;
+      color: $form-check-label-color;
+      cursor: pointer;
+      margin: 0;
+      padding-left: $form-check-label-padding-left;
+      width: calc(100% - #{$form-check-label-padding-left});
+      font-weight: bold;
+    }
+    &-input {
+      width: 26px;
+      height: 26px;
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      border: solid $input-checkbox-border-width $input-checkbox-border-color;
+      border-radius: $input-checkbox-border-radius;
+      transition: background 0.4s ease-in-out;
+      &:hover {
+        background: $dark-white;
+      }
+      .form-control {
+        opacity: 0;
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+      }
+      &.checked {
+        &:before {
+          content: ' ';
+          display: block;
+          left: 7px;
+          top: 7px;
+          background: url(~assets/images/checkbox-checked.svg) no-repeat center;
+          position: absolute;
+          width: 11px;
+          height: 11px;
+          z-index: 0;
+        }
+      }
+    }
+  }
+}
+
+.outline-none {
+  outline: none !important;
+}
+
+textarea {
+  &.form-control {
+    border-radius: 1rem !important;
+  }
+}

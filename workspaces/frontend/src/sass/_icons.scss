@@ -1,0 +1,131 @@
+// Icons
+
+.icon {
+  width: 1.875rem;
+  height: 1.875rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9375rem;
+  &.rounded {
+    border-radius: 2rem !important;
+  }
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-teacher:before {
+  content: '\e91a';
+}
+.icon-pencil-case:before {
+  content: '\e91b';
+}
+.icon-student:before {
+  content: '\e91c';
+}
+.icon-calendar:before {
+  content: '\e91d';
+}
+.icon-clock:before {
+  content: '\e91e';
+}
+.icon-pin:before {
+  content: '\e919';
+}
+.icon-logout:before {
+  content: '\e918';
+}
+.icon-search:before {
+  content: '\e917';
+}
+.icon-email:before {
+  content: '\e916';
+}
+.icon-tick-inside-circle:before {
+  content: '\e914';
+}
+.icon-error:before {
+  content: '\e915';
+}
+.icon-close:before {
+  content: '\e912';
+}
+.icon-plus:before {
+  content: '\e913';
+}
+.icon-delete:before {
+  content: '\e911';
+}
+.icon-print:before {
+  content: '\e910';
+}
+.icon-quote-down:before {
+  content: '\e90d';
+}
+.icon-quote-up:before {
+  content: '\e90e';
+}
+.icon-menu-three-horizontal-lines-symbol:before {
+  content: '\e90f';
+}
+.icon-clock-circular-outline:before {
+  content: '\e90c';
+}
+.icon-play-button:before {
+  content: '\e90b';
+}
+.icon-angle-arrow-pointing-to-right:before {
+  content: '\e900';
+}
+.icon-angle-pointing-to-left:before {
+  content: '\e90a';
+}
+.icon-girchi-logo:before {
+  content: '\e901';
+}
+.icon-girchi-logo-alt:before {
+  content: '\e902';
+}
+.icon-arrow-down-sign-to-navigate:before {
+  content: '\e903';
+}
+.icon-checked:before {
+  content: '\e904';
+}
+.icon-envelope:before {
+  content: '\e905';
+}
+.icon-ged:before {
+  content: '\e906';
+}
+.icon-social-facebook-circular-button:before {
+  content: '\e907';
+}
+.icon-social-twitter-circular-button:before {
+  content: '\e908';
+}
+.icon-social-youtube-circular-button:before {
+  content: '\e909';
+}
+.icon-smartphone:before {
+  content: '\e958';
+  margin: 0 -0.5rem;
+}
+.icon-user:before {
+  content: '\e971';
+}
+.icon-arrow-right2:before {
+  content: '\ea3c';
+}

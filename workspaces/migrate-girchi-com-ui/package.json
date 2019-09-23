@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "@girchi/migrate-girchi-com-ui",
+  "version": "0.0.0-not-versioned",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "jsdom-no-contextify": "^3.1.0",
+    "react-dom-core": "^0.1.1"
+  }
+}

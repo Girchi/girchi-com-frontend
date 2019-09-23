@@ -1,0 +1,28 @@
+//
+// Fonts
+//
+@font-face {
+  font-family: 'FiraGO';
+  font-style: normal;
+  font-weight: 700;
+  src: url('~assets/fonts/FiraGO/FiraGO-Medium.woff2') format('woff2'),
+    url('~assets/fonts/FiraGO/FiraGO-Medium.woff') format('woff'),
+    url('~assets/fonts/FiraGO/FiraGO-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'FiraGO';
+  font-style: normal;
+  font-weight: 400;
+  src: url('~assets/fonts/FiraGORegular/FiraGO-Regular.woff2') format('woff2'),
+    url('~assets/fonts/FiraGORegular/FiraGO-Regular.woff') format('woff'),
+    url('~assets/fonts/FiraGORegular/FiraGO-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url('~assets/fonts/Icomoon/icomoon.ttf?b4rug') format('truetype'),
+    url('~assets/fonts/Icomoon/icomoon.woff?b4rug') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

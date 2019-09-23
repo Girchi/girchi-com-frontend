@@ -1,0 +1,132 @@
+{
+  "plugins": ["sort-imports-es6-autofix", "flowtype", "react-hooks"],
+  "extends": ["standard", "standard-react", "plugin:flowtype/recommended"],
+  "settings": {
+    "react": {
+      //"createClass": "createReactClass",
+      //"pragma": "React",
+      "version": "16.9",
+      "flowVersion": "0.108.0"
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "gtag": true
+  },
+  "rules": {
+    "flowtype/no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true,
+        "allowTaggedTemplates": true
+      }
+    ],
+    "no-unused-expressions": "off",
+    "no-case-declarations": "off",
+    "no-void": "off",
+    "no-template-curly-in-string": "off",
+    "camelcase": "off",
+    // "react/jsx-no-target-blank": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "react/no-deprecated": "error",
+    "react/no-direct-mutation-state": "error",
+    "react/no-typos": "error",
+    "react/require-render-return": "error",
+    "react/no-did-update-set-state": "off",
+    "dot-notation": "error",
+    "sort-imports-es6-autofix/sort-imports-es6": ["error", {
+      "ignoreCase": false,
+      "ignoreMemberSort": false,
+      "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+    }],
+    "arrow-parens": ["error", "as-needed"],
+    "import/newline-after-import": "error",
+    "object-curly-spacing": ["error", "always"],
+    "no-var": "error",
+    "prefer-const": "error",
+    "quote-props": ["error", "as-needed", { "numbers": true }],
+    "no-restricted-properties": ["error", {
+      "object": "PropTypes",
+      "property": "any",
+      "message": "Please be more specific about data types"
+    }, {
+      "object": "PropTypes",
+      "property": "object",
+      "message": "Please be more specific about data types"
+    }, {
+      "object": "PropTypes",
+      "property": "array",
+      "message": "Please be more specific about data types"
+    }, {
+      "object": "console",
+      "property": "log",
+      "message": "Don't leave console.log's in your code"
+    }]
+  },
+  "overrides": [
+    {
+      "files": [ "src/js/modules/**" ],
+      "rules": {
+        "no-restricted-imports": ["error", {
+          "paths": [
+            {
+              "name": "stateOfArt",
+              "message": "don't use redux store directly use redux connect instead"
+            }
+          ]
+        }]
+      }
+    },
+    {
+      "files": [ "src/js/modules/*/views/**" ],
+      "rules": {
+        "no-restricted-imports": ["error", {
+          "paths": [
+            {
+              "name": "react-redux",
+              "message": "don't use redux in react components directly use containers instead"
+            }, {
+              "name": "stateOfArt",
+              "message": "don't use redux store directly use redux connect instead"
+            }
+          ]
+        }]
+      }
+    },
+    {
+      "files": [ "src/js/modules/*/reducers/**" ],
+      "rules": {
+        "no-restricted-properties": ["error", {
+          "object": "PropTypes",
+          "property": "func",
+          "message": "You can't possibly have function in state"
+        }, {
+          "object": "PropTypes",
+          "property": "any",
+          "message": "Please be more specific about data types"
+        }, {
+          "object": "PropTypes",
+          "property": "object",
+          "message": "Please be more specific about data types"
+        }, {
+          "object": "PropTypes",
+          "property": "array",
+          "message": "Please be more specific about data types"
+        }]
+      }
+    }
+  ]
+}

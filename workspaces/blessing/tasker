@@ -1,0 +1,140 @@
+#!/usr/bin/env bash
+set -e
+
+SELF_PATH=$(cd -P -- "$(dirname -- "$0")" && pwd -P) && SELF_PATH=$SELF_PATH/$(basename -- "$0")
+SELF_DIR=$(dirname $SELF_PATH)
+ROOT_DIR="$SELF_DIR/../.."
+WORKSPACES_DIR="$ROOT_DIR/workspaces"
+WORKSPACE_DIR="$ROOT_DIR/workspaces/frontend"
+
+ESLINT_CONFIG="$SELF_DIR/.eslintrc.json"
+ESLINT_IGNORE_CONFIG="$SELF_DIR/.eslintignore"
+ESLINT_FILES="$ROOT_DIR/flow-typed $WORKSPACES_DIR"
+ESLINT_COMMAND="eslint --ignore-path $ESLINT_IGNORE_CONFIG --config $ESLINT_CONFIG $ESLINT_FILES"
+
+PRETTIER_CONFIG="$SELF_DIR/.prettierrc.js"
+PRETTIER_CSS_FILES="$WORKSPACE_DIR/src/sass/**/**.scss $WORKSPACE_DIR/src/sass/*.scss"
+PRETTIER_CSS_COMMAND="prettier --config $PRETTIER_CONFIG $PRETTIER_CSS_FILES --parser=css"
+
+WEBPACK_CONFIG="$SELF_DIR/webpack.config.js"
+
+FLOW_COVERAGE_FILES="workspaces/frontend/src/**/*.js"
+
+if [ ! -f $ROOT_DIR/node_modules/@thecotne/tasker/tasker-core ]; then
+  yarn --frozen-lockfile
+fi
+
+source $ROOT_DIR/node_modules/@thecotne/tasker/tasker-core
+
+function start { # Start Development Server
+  if [[ "$1" = "--production" ]]; then
+    webpack-dev-server --config $WEBPACK_CONFIG --mode=production --env.https
+  else
+    webpack-dev-server --config $WEBPACK_CONFIG --mode=development --env.https
+  fi
+}
+
+function build { # Compile Assets
+  clean
+
+  if [[ "$1" = "--production" ]]; then
+    webpack --config $WEBPACK_CONFIG --mode=production
+  else
+    webpack --config $WEBPACK_CONFIG --mode=development
+  fi
+}
+
+function watch { # Compile Assets And Watch For Changes
+  clean
+
+  if [[ "$1" = "--production" ]]; then
+    webpack --config $WEBPACK_CONFIG --mode=production --watch
+  else
+    webpack --config $WEBPACK_CONFIG --mode=development --watch
+  fi
+}
+
+function clean { # Remove built files
+  rm -vrf $(_path_normalize $WORKSPACE_DIR/public)
+  rm -vrf $(_path_normalize $ROOT_DIR/public)
+  rm -vrf $(_path_normalize $ROOT_DIR/flow-coverage)
+  rm -vrf $(_path_normalize $ROOT_DIR/storybook-static)
+}
+
+function test { # Run Tests
+  prettier-css-lint
+  grep-tests
+  lint
+  flow-check
+}
+
+function grep-tests { # custom linting using grep
+  TEST_DIR=$(_path_relative $ROOT_DIR $WORKSPACE_DIR/src)
+
+  _grep -HRin "facebook\.com" $TEST_DIR || true
+  _grep -HRin "google\.\(com\|ge\)" $TEST_DIR || true
+  _grep -HRin "girchi\.\(com\|ge\)" $TEST_DIR || true
+}
+
+function prettier-css { # Prettier CSS
+  eval "$PRETTIER_CSS_COMMAND --write"
+}
+
+function prettier-css-lint { # Prettier CSS Lint
+  eval "$PRETTIER_CSS_COMMAND --list-different"
+}
+
+function lint { # Lint Project Files (don't show warning)
+  eval "$ESLINT_COMMAND --quiet ${@}"
+}
+
+function lint-strict { # Lint Project Files
+  eval "$ESLINT_COMMAND ${@}"
+}
+
+function flow-check { # Flow Check
+  cd $ROOT_DIR
+
+  flow check
+}
+
+function flow-coverage { # Flow Coverage Report text
+  cd $ROOT_DIR
+
+  flow-coverage-report -i "$FLOW_COVERAGE_FILES"
+}
+
+function flow-coverage-html { # Flow Coverage Report html
+  cd $ROOT_DIR
+
+  flow-coverage-report -i "$FLOW_COVERAGE_FILES" -t html
+}
+
+
+function _path_normalize {
+  node -e "
+    const path = require('path');
+    process.stdout.write(
+      path.normalize(process.argv[1])
+    )
+  " $1
+}
+
+function _path_relative {
+  node -e "
+    const path = require('path');
+    process.stdout.write(
+      path.relative(process.argv[1], process.argv[2])
+    )
+  " $1 $2
+}
+
+function _grep {
+  if hash ggrep 2>/dev/null; then
+    ggrep --color "$@"
+  else
+    grep --color "$@"
+  fi
+}
+
+_bootstrap "${@}"

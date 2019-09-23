@@ -1,0 +1,58 @@
+// Banner
+
+.banner {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+      &#{$infix} {
+        &-default {
+          &:before {
+            content: '';
+            padding-top: 60%;
+            display: block;
+            min-height: 220px;
+          }
+        }
+        &-wide {
+          &:before {
+            content: '';
+            padding-top: 40%;
+            display: block;
+            min-height: 220px;
+          }
+        }
+      }
+    }
+  }
+
+  &-bg {
+    &-center {
+      background-position-y: center;
+      background-position-x: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    &-donate {
+      background-image: url(~assets/images/donate-bg.jpg);
+    }
+    &-defense {
+      background: url(~assets/images/defense.png) no-repeat 90% 70%, $green-gradient;
+    }
+
+    &-education {
+      background: url(~assets/images/education.png) no-repeat 90% 70%, $green-gradient;
+    }
+    &-gradient-green {
+      background-image: $green-gradient;
+    }
+    &-defense,
+    &-education {
+      @media screen and (min-width: map-get($grid-breakpoints, 'xs')) {
+        background-size: 100px 100px, auto;
+      }
+      @media screen and (min-width: map-get($grid-breakpoints, 'lg')) {
+        background-size: auto;
+      }
+    }
+  }
+}

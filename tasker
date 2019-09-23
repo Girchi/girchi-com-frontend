@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+set -e
+
+if [ ! -f ./node_modules/@thecotne/tasker/tasker-core ]; then
+  yarn --frozen-lockfile
+fi
+
+source ./node_modules/@thecotne/tasker/tasker-core
+
+function info { # Show some informations about environment
+  echo "yarn v$(yarn -v)"
+  echo "node $(node -v)"
+}
+
+function install { # Install All Dependencies
+  yarn --frozen-lockfile
+}
+
+function update { # Update Project
+  yarn upgrade-interactive --force --latest
+}
+
+function storybook-start { # Start Storybook
+  start-storybook -c workspaces/storybook -p 8132 -h local-dev.girchi.com --ci
+}
+
+function storybook-build { # Build Storybook
+  build-storybook -c workspaces/storybook --quiet
+}
+
+function start { # Start Server
+  eval "blessing start ${@}"
+}
+
+function build { # Build App
+  eval "blessing build ${@}"
+}
+
+function build-everything { # Build Everything
+  eval "blessing build ${@}"
+  eval "blessing flow-coverage-html ${@}"
+  eval "storybook-build ${@}"
+}
+
+function test { # Run Tests
+  blessing test
+}
+
+function lint { # Lint Project Files (don't show warning)
+  eval "blessing lint ${@}"
+}
+
+function blessing { # Run frontend tasker command
+  eval "./workspaces/blessing/tasker ${@}"
+}
+
+_bootstrap "${@}"
