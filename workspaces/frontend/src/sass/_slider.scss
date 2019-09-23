@@ -14,13 +14,13 @@
       padding-bottom: 24px;
       padding-top: initial !important;
       font-size: 0.75rem;
-      font-feature-settings: "case" on;
+      font-feature-settings: 'case' on;
       color: $success;
       font-weight: bold;
       pointer-events: none;
       position: relative;
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         display: block;
         width: 1px;
@@ -42,7 +42,7 @@
     height: 20px !important;
     border-radius: 5rem !important;
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       width: 30px;
       height: 20px;
@@ -54,7 +54,7 @@
       border-radius: 5rem !important;
     }
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       width: 30px;
       height: 20px;
@@ -72,10 +72,10 @@
     z-index: 2;
     text-align: center;
     color: $white;
-    font-feature-settings: "case" on;
+    font-feature-settings: 'case' on;
     font-size: 0.75rem;
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       width: 32px;
       height: 20px;
@@ -89,7 +89,7 @@
       z-index: 1;
     }
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       width: 27px;
       height: 20px;

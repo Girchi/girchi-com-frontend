@@ -7,7 +7,7 @@
       &#{$infix} {
         &-default {
           &:before {
-            content: "";
+            content: '';
             padding-top: 60%;
             display: block;
             min-height: 220px;
@@ -15,7 +15,7 @@
         }
         &-wide {
           &:before {
-            content: "";
+            content: '';
             padding-top: 40%;
             display: block;
             min-height: 220px;
@@ -40,18 +40,17 @@
     }
 
     &-education {
-      background: url(~assets/images/education.png) no-repeat 90% 70%,
-        $green-gradient;
+      background: url(~assets/images/education.png) no-repeat 90% 70%, $green-gradient;
     }
     &-gradient-green {
       background-image: $green-gradient;
     }
     &-defense,
     &-education {
-      @media screen and (min-width: map-get($grid-breakpoints, "xs")) {
+      @media screen and (min-width: map-get($grid-breakpoints, 'xs')) {
         background-size: 100px 100px, auto;
       }
-      @media screen and (min-width: map-get($grid-breakpoints, "lg")) {
+      @media screen and (min-width: map-get($grid-breakpoints, 'lg')) {
         background-size: auto;
       }
     }

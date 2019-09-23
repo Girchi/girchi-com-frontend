@@ -3,7 +3,7 @@
   &-map {
     height: 270px;
     width: 100%;
-    @media screen and (min-width: map-get($grid-breakpoints, "md")) {
+    @media screen and (min-width: map-get($grid-breakpoints, 'md')) {
       height: 450px;
     }
   }
@@ -33,13 +33,13 @@
   &-view-all {
     display: flex;
     align-items: center;
-    [class^="icon-"] {
+    [class^='icon-'] {
       display: inline-block;
       transition: transform 0.4s;
       margin-left: 0.5rem;
     }
     &:hover {
-      [class^="icon-"] {
+      [class^='icon-'] {
         transform: translateX(3px);
       }
     }

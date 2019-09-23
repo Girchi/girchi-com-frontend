@@ -1,16 +1,25 @@
 const { walkSync } = require('@girchi/producers/helpers')
 const { readFileSync } = require('fs')
 const { resolve } = require('path')
+const prettier = require('prettier')
+const prettierrc = require('@girchi/blessing/.prettierrc.js')
+
+const prettierConfig = {
+  ...prettierrc,
+  parser: 'css'
+}
 
 const abs = str => resolve(__dirname, str)
 const root = (str = '') => resolve(abs('../..'), str)
 
 function transform (content) {
-  return (
+  const code = (
     content
       .replace(/\.\.\/images/g, '~assets/images')
       .replace(/\.\.\/fonts/g, '~assets/fonts')
   )
+
+  return prettier.format(code, prettierConfig)
 }
 
 function * produceGen () {

@@ -3,7 +3,7 @@
 .overlay {
   position: relative;
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -15,11 +15,7 @@
 
   @each $size, $value in $sizes {
     &-#{$size} {
-      background: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 1) 0%,
-        transparent $value
-      );
+      background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, transparent $value);
     }
   }
 }

@@ -16,7 +16,7 @@
     position: relative;
     &-btn {
       position: relative;
-      @media screen and (max-width: map-get($grid-breakpoints, "lg")) {
+      @media screen and (max-width: map-get($grid-breakpoints, 'lg')) {
         pointer-events: none;
       }
     }
@@ -25,26 +25,26 @@
       right: 0;
       transition: all 0.5s ease-in-out;
       display: block;
-      @media screen and (min-width: map-get($grid-breakpoints, "lg")) {
+      @media screen and (min-width: map-get($grid-breakpoints, 'lg')) {
         display: none;
       }
     }
   }
   &-brand {
     &-lg {
-      @media screen and (min-width: map-get($grid-breakpoints, "xs")) {
+      @media screen and (min-width: map-get($grid-breakpoints, 'xs')) {
         font-size: $navbar-brand-lg-font-size-sm;
       }
-      @media screen and (min-width: map-get($grid-breakpoints, "md")) {
+      @media screen and (min-width: map-get($grid-breakpoints, 'md')) {
         font-size: $navbar-brand-lg-font-size;
       }
     }
     &-sm {
       font-size: $navbar-brand-sm-font-size;
-      @media screen and (min-width: map-get($grid-breakpoints, "xs")) {
+      @media screen and (min-width: map-get($grid-breakpoints, 'xs')) {
         font-size: $navbar-brand-sm-font-size-sm;
       }
-      @media screen and (min-width: map-get($grid-breakpoints, "md")) {
+      @media screen and (min-width: map-get($grid-breakpoints, 'md')) {
         font-size: $navbar-brand-sm-font-size;
       }
     }
@@ -54,12 +54,12 @@
       padding: 0 0.4375rem;
       display: flex;
       align-items: center;
-      [class^="icon-"] {
+      [class^='icon-'] {
         color: $dark-silver;
         font-size: 36px;
       }
 
-      [class^="icon-"] + a {
+      [class^='icon-'] + a {
         margin: 0 1.25rem;
       }
     }
@@ -86,7 +86,7 @@
   transition: top 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   z-index: 1061;
   &-wrapper {
-    @media screen and (min-width: map-get($grid-breakpoints, "lg")) {
+    @media screen and (min-width: map-get($grid-breakpoints, 'lg')) {
       min-height: 5.25rem;
     }
   }

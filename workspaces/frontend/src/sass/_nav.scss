@@ -20,7 +20,7 @@
     background: rgba(249, 248, 248, 0.6);
     list-style-type: none;
     padding: 0px;
-    @media screen and (min-width: map-get($grid-breakpoints, "lg")) {
+    @media screen and (min-width: map-get($grid-breakpoints, 'lg')) {
       position: absolute;
       z-index: 5;
       box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.05);
@@ -60,8 +60,7 @@
       display: flex !important;
       justify-content: space-between;
       align-items: center;
-      transition: color 0.4s ease-in-out, box-shadow 0.4s ease-in-out,
-        background 0.4s ease-in-out;
+      transition: color 0.4s ease-in-out, box-shadow 0.4s ease-in-out, background 0.4s ease-in-out;
       &:hover {
         box-shadow: inset 3px 0 0 0 $success;
       }
@@ -76,7 +75,7 @@
         background: $dark-white;
       }
       &:after {
-        content: "\e903";
+        content: '\e903';
         color: $dark-silver;
         font-family: icomoon;
         font-size: 0.6rem;
@@ -87,7 +86,7 @@
         color: $dark;
       }
     }
-    a[aria-expanded="false"] {
+    a[aria-expanded='false'] {
       &:focus {
         background-color: $white;
       }
@@ -95,7 +94,7 @@
         background-color: $list-group-hover-bg;
       }
     }
-    a[aria-expanded="true"] {
+    a[aria-expanded='true'] {
       background-color: $dark-white;
       &:after {
         transform: rotate(180deg);

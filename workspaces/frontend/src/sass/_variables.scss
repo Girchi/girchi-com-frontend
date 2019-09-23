@@ -1,4 +1,4 @@
-@import "~bootstrap/scss/_functions";
+@import '~bootstrap/scss/_functions';
 
 // Color system
 $lighter-green: #85e78c;
@@ -26,25 +26,25 @@ $warning-gradient: linear-gradient(42deg, #ffae33, #f8a01a);
 $colors: () !default;
 $colors: map-merge(
   (
-    "light-green": $light-green,
-    "lighter-green": $lighter-green,
-    "hospital-green": $hospital-green,
-    "dark-green": $dark-green,
-    "green": $green,
-    "yellow": $yellow,
-    "silver": $silver,
-    "light-silver": $light-silver,
-    "dark-silver": $dark-silver,
-    "grey": $grey,
-    "light-grey": $light-grey,
-    "blue": $blue,
-    "light-blue": $light-blue,
-    "dark-blue": dark-blue,
-    "red": $red,
-    "white": $white,
-    "dark-white": $dark-white,
-    "purple": $purple,
-    "black": $black
+    'light-green': $light-green,
+    'lighter-green': $lighter-green,
+    'hospital-green': $hospital-green,
+    'dark-green': $dark-green,
+    'green': $green,
+    'yellow': $yellow,
+    'silver': $silver,
+    'light-silver': $light-silver,
+    'dark-silver': $dark-silver,
+    'grey': $grey,
+    'light-grey': $light-grey,
+    'blue': $blue,
+    'light-blue': $light-blue,
+    'dark-blue': dark-blue,
+    'red': $red,
+    'white': $white,
+    'dark-white': $dark-white,
+    'purple': $purple,
+    'black': $black
   ),
   $colors
 );
@@ -62,27 +62,27 @@ $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(
   (
-    "primary": $primary,
-    "secondary": $secondary,
-    "success": $success,
-    "info": $info,
-    "warning": $warning,
-    "danger": $danger,
-    "light": $light,
-    "dark": $dark,
-    "white": $white,
-    "yellow": $yellow,
-    "dark-white": $dark-white,
-    "grey": $grey,
-    "light-silver": $light-silver,
-    "dark-silver": $dark-silver,
-    "light-green": $light-green,
-    "lighter-green": $lighter-green,
-    "dark-green": $dark-green,
-    "hospital-green": $hospital-green,
-    "purple": $purple,
-    "light-blue": $light-blue,
-    "black": $black
+    'primary': $primary,
+    'secondary': $secondary,
+    'success': $success,
+    'info': $info,
+    'warning': $warning,
+    'danger': $danger,
+    'light': $light,
+    'dark': $dark,
+    'white': $white,
+    'yellow': $yellow,
+    'dark-white': $dark-white,
+    'grey': $grey,
+    'light-silver': $light-silver,
+    'dark-silver': $dark-silver,
+    'light-green': $light-green,
+    'lighter-green': $lighter-green,
+    'dark-green': $dark-green,
+    'hospital-green': $hospital-green,
+    'purple': $purple,
+    'light-blue': $light-blue,
+    'black': $black
   ),
   $theme-colors
 );
@@ -162,7 +162,7 @@ $fontSizes: (
 );
 
 $line-height-base: 1.5 !default;
-$font-family-firaGo: "FiraGO" !default;
+$font-family-firaGo: 'FiraGO' !default;
 $font-family-base: $font-family-firaGo !default;
 
 // This variable affects the `.h-*` and `.w-*` classes.

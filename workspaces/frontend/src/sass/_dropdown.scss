@@ -4,7 +4,7 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
-  &-toggle[aria-expanded="true"] {
+  &-toggle[aria-expanded='true'] {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     .caret {

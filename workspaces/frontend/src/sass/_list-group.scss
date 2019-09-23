@@ -2,7 +2,7 @@
   &-item-action {
     &.expanded {
       background: $dark-white;
-      [data-toggle="collapse"] {
+      [data-toggle='collapse'] {
         &:before {
           display: block;
           transform: rotate(180deg);
@@ -10,7 +10,7 @@
       }
     }
   }
-  [data-toggle="collapse"] {
+  [data-toggle='collapse'] {
     outline: none;
   }
 }
