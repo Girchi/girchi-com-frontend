@@ -10,6 +10,12 @@
         .max-#{$abbrev}#{$infix}-#{$size} {
           max-#{$prop}: #{$size}px !important;
         }
+        .min-#{$abbrev}#{$infix}-#{$size} {
+          min-#{$prop}: #{$size}px !important;
+        }
+        .#{$abbrev}#{$infix}-#{$size}-px {
+          #{$prop}: #{$size}px !important;
+        }
       }
     }
   }
@@ -21,7 +27,7 @@
     @each $prop, $abbrev in (width: w, height: h) {
       @each $size, $length in $sizes {
         .#{$abbrev}#{$infix}-#{$size} {
-          width: $length !important;
+          #{$prop}: $length !important;
         }
       }
     }

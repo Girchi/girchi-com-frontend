@@ -1,21 +1,22 @@
 const { readdirSync, statSync } = require('fs')
 const { relative } = require('path')
 
-function walkSync (path, base) {
-  base = base || path
+function walkSync (currentPath, basePath) {
+  return Array.from(walkSyncGen(currentPath, basePath))
+}
 
-  return (
-    readdirSync(path)
-      .reduce((files, file) => {
-        const filePath = `${path}/${file}`
+function * walkSyncGen (currentPath, defaultBasePath) {
+  const paths = []
+  const basePath = defaultBasePath || currentPath
 
-        return files.concat(
-          statSync(filePath).isDirectory()
-            ? walkSync(filePath, base)
-            : [relative(base, filePath)]
-        )
-      }, [])
-  )
+  do {
+    if (statSync(currentPath).isDirectory()) {
+      paths.push(...readdirSync(currentPath).map(file => `${currentPath}/${file}`))
+    } else {
+      yield relative(basePath, currentPath)
+    }
+    currentPath = paths.shift()
+  } while (currentPath)
 }
 
 function productHeader () {

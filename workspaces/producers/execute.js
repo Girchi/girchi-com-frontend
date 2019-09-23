@@ -7,13 +7,19 @@ const abs = str => resolve(__dirname, str)
 const root = (str = '') => resolve(abs('../..'), str)
 
 function * getProducers () {
-  for (const path of process.argv.slice(2)) {
+  const paths = process.argv.slice(2)
+
+  if (!paths.length) {
+    paths.push(root())
+  }
+
+  for (const path of paths) {
     const dir = abs(resolve(process.cwd(), path))
 
     yield * (
       walkSync(dir)
-        .filter(path => path.match(/_producer.js$/))
         .map(path => resolve(dir, path))
+        .filter(path => /_producer\.js$/.test(path) && !/\/node_modules\//.test(path))
     )
   }
 }

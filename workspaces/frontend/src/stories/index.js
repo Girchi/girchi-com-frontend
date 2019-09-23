@@ -1,3 +1,3 @@
 // @flow strict-local
-import './test'
+import './jsx_of_html'
 import 'sass/index.scss'

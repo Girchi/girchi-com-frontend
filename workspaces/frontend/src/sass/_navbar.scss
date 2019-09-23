@@ -3,6 +3,15 @@
 //
 
 .navbar {
+  &-light {
+    .nav-item {
+      &.collapsed {
+        .nav-link {
+          box-shadow: inset 0 -4px $navbar-light-hover-color;
+        }
+      }
+    }
+  }
   &-search {
     position: relative;
     &-btn {
@@ -75,7 +84,7 @@
   left: 0;
   width: 100%;
   transition: top 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  z-index: 50;
+  z-index: 1061;
   &-wrapper {
     @media screen and (min-width: map-get($grid-breakpoints, "lg")) {
       min-height: 5.25rem;
@@ -86,6 +95,9 @@
     .auth {
       display: block !important;
     }
+    .user-panel {
+      display: flex !important;
+    }
     .dropdown,
     .navbar-search {
       display: none !important;
@@ -94,5 +106,9 @@
   &.sticky {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     top: 0;
+    .nav-link {
+      font-size: 0.8125rem;
+      white-space: nowrap;
+    }
   }
 }

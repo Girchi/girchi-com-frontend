@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -e
+
+SELF_PATH=$(cd -P -- "$(dirname -- "$0")" && pwd -P) && SELF_PATH=$SELF_PATH/$(basename -- "$0")
+SELF_DIR=$(dirname $SELF_PATH)
+ROOT_DIR="$SELF_DIR/../.."
+WORKSPACES_DIR="$ROOT_DIR/workspaces"
+WORKSPACE_DIR="$ROOT_DIR/workspaces/frontend"
+
+if [ ! -f $ROOT_DIR/node_modules/@thecotne/tasker/tasker-core ]; then
+  yarn --frozen-lockfile
+fi
+
+source $ROOT_DIR/node_modules/@thecotne/tasker/tasker-core
+
+function migrate { # migrate
+  assets
+  producers
+}
+
+function assets { # move assets
+  rsync -vaz $ROOT_DIR/girchi-com-ui/src/fonts/ $WORKSPACE_DIR/src/assets/fonts/
+  rsync -vaz $ROOT_DIR/girchi-com-ui/src/images/ $WORKSPACE_DIR/src/assets/images/
+}
+
+function producers { # producers
+  node $ROOT_DIR/workspaces/producers/execute.js $ROOT_DIR/workspaces/migrate-girchi-com-ui
+}
+
+_bootstrap "${@}"

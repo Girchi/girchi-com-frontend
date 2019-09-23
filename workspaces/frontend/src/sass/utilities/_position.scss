@@ -5,7 +5,26 @@
     @each $position, $properties in $positions {
       &-#{$side}-#{$position} {
         @each $property, $value in $properties {
-          #{$property}: $value;
+          #{$property}: #{$value};
+        }
+      }
+    }
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .position {
+      &#{$infix} {
+        &-absolute {
+          position: absolute !important;
+        }
+        &-fixed {
+          position: fixed !important;
+        }
+        &-static {
+          position: static !important;
         }
       }
     }

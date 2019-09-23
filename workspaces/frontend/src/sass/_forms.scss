@@ -3,6 +3,92 @@
 //
 
 .form {
+  &-group {
+    .iti {
+      display: block;
+      border-radius: $input-border-radius-lg;
+      .form-control {
+        padding-right: $input-padding-x-lg;
+        padding-left: 4.375rem;
+      }
+      &__selected-flag {
+        padding-left: $input-padding-x-lg;
+        background-color: transparent !important;
+        outline: none;
+      }
+    }
+    &.is-invalid {
+      position: relative;
+      .iti {
+        & + .validation-message {
+          position: absolute;
+          display: block;
+          width: 20px;
+          height: 20px;
+          background: $light-silver;
+          border-radius: 1rem;
+          top: 50px;
+          left: calc(100% - 35px);
+          font-family: icomoon !important;
+          speak: none;
+          font-style: normal;
+          @extend .icon-close;
+          font-size: 0.6rem;
+          color: $danger;
+          padding: 0.2rem 0.3rem;
+        }
+      }
+      .form-control {
+        border-color: $danger;
+        padding-right: 2.5rem;
+        &.form-control-lg {
+          & + .validation-message {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: $light-silver;
+            border-radius: 1rem;
+            top: 50px;
+            left: calc(100% - 35px);
+            font-family: icomoon !important;
+            speak: none;
+            font-style: normal;
+            @extend .icon-close;
+            font-size: 0.6rem;
+            color: $danger;
+            padding: 0.2rem 0.3rem;
+          }
+        }
+      }
+    }
+    &.is-valid {
+      position: relative;
+      .form-control {
+        border-color: $green;
+        padding-right: 2.5rem;
+        &.form-control-lg {
+          & + .validation-message {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: $light-silver;
+            border-radius: 1rem;
+            top: 50px;
+            left: calc(100% - 35px);
+            font-family: icomoon !important;
+            speak: none;
+            font-style: normal;
+            @extend .icon-checked;
+            font-size: 0.6rem;
+            color: $green;
+            padding: 0.2rem 0.3rem;
+          }
+        }
+      }
+    }
+  }
   &-label {
     color: $input-label-color;
     font-size: $input-label-font-size;
@@ -10,6 +96,15 @@
     font-weight: bold;
   }
   &-control {
+    &-spin-none {
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin: 0;
+      }
+    }
     select {
       background: transparent;
       border: none;
@@ -75,4 +170,10 @@
 
 .outline-none {
   outline: none !important;
+}
+
+textarea {
+  &.form-control {
+    border-radius: 1rem !important;
+  }
 }
