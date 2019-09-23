@@ -1,13 +1,11 @@
-const { basename, dirname } = require('path')
-const { walkSync, productHeader, nl, linesToString, flatten, optional } = require('@girchi/producers/helpers')
-const { readFileSync, writeFileSync, readdirSync, statSync, existsSync } = require('fs')
-const { resolve, relative } = require('path')
-const { red, yellow, green, blue } = require('chalk')
+const { walkSync } = require('@girchi/producers/helpers')
+const { readFileSync } = require('fs')
+const { resolve } = require('path')
 
 const abs = str => resolve(__dirname, str)
 const root = (str = '') => resolve(abs('../..'), str)
 
-function transform(content) {
+function transform (content) {
   return (
     content
       .replace(/\.\.\/images/g, '~assets/images')
@@ -15,7 +13,7 @@ function transform(content) {
   )
 }
 
-function *produceGen () {
+function * produceGen () {
   const stylesPath = root('girchi-com-ui/src/styles')
   const paths = walkSync(stylesPath)
 
